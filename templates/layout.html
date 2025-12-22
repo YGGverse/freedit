@@ -3,7 +3,7 @@
 
 <head>
     {% block csp %}
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
     img-src 'self'; script-src 'none'; style-src 'self'; object-src 'none';
     font-src 'none'; form-action 'self'; frame-src 'none'; media-src 'none'; manifest-src 'none'; worker-src 'none';">
     {% endblock %}
@@ -31,8 +31,8 @@
                     <div class="tabs is-small is-boxed">
                         <ul>
                             {% block tabs %}
-                            <li><a href="/inn/0">Inn</a></li>
-                            <li><a href="/solo/user/0">Solo</a></li>
+                            <li><a href="/inn/0">{{ "inn"|l10n(page_data.lang) }}</a></li>
+                            <li><a href="/solo/user/0">{{ "solo"|l10n(page_data.lang) }}</a></li>
                             {% endblock %}
                         </ul>
                     </div>
@@ -43,7 +43,7 @@
                 <div class="level is-mobile">
                     {% block menu_right %}
                         {% match page_data.claim %} {% when Some with (val) %}
-                            <a href="/feed/{{val.uid}}">
+                            <a href="/feed/{{val.uid}}" title="{{ "feeds"|l10n(page_data.lang) }}">
                                 <span class="icon is-large">
                                     <span class="icon">
                                         {% include "icons/feeds.svg" %}
@@ -51,7 +51,7 @@
                                 </span>
                             </a>
                             <a href="/notification">
-                                <span class="icon is-large">
+                                <span class="icon is-large" title="{{ "notifications"|l10n(page_data.lang) }}">
                                     <span class="icon-text icon-text-info">
                                         <span class="icon">
                                             {% include "icons/notification.svg" %}
@@ -62,21 +62,21 @@
                                     </span>
                                 </span>
                             </a>
-                            <a href="/signout">
+                            <a href="/signout" title="{{ "sign_out"|l10n(page_data.lang) }}">
                                 <span class="icon is-large is-hidden-mobile">
                                     <span class="icon">
                                         {% include "icons/signout.svg" %}
                                     </span>
                                 </span>
                             </a>
-                            <a href="/user/setting">
+                            <a href="/user/setting" title="{{ "settings"|l10n(page_data.lang) }}">
                                 <span class="icon is-large is-hidden-mobile">
                                     <span class="icon">
                                         {% include "icons/setting.svg" %}
                                     </span>
                                 </span>
                             </a>
-                            <a href="/user/{{val.uid}}">
+                            <a href="/user/{{val.uid}}" title="{{ "profile"|l10n(page_data.lang) }}">
                                 <span class="icon is-large">
                                     <span class="image"><img src="/static/avatars/{{val.uid}}.png" alt="{{val.username}}"></span>
                                 </span>
@@ -84,7 +84,7 @@
                         {% else %}
                             <div class="buttons has-addons">
                                 <a href="/signin"><button class="button is-info is-small">{{ "sign_in"|l10n(page_data.lang) }}</button></a>
-                                <a href="/signup"><button class="button is-success is-small">{{ "sign_up"|l10n(page_data.lang) }}</button></a> 
+                                <a href="/signup"><button class="button is-success is-small">{{ "sign_up"|l10n(page_data.lang) }}</button></a>
                             </div>
                         {% endmatch %}
                     {% endblock %}

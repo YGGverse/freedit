@@ -77,13 +77,13 @@
                         <div class="select">
                             <select name="home_page" required>
                                 <option value="0">Default</option>
-                                <option {% if home_page ==0 %} selected {% endif %} value="0">Inn/{{ "all"|l10n(page_data.lang) }}</option>
-                                <option {% if home_page ==1 %} selected {% endif %} value="1">Feed</option>
-                                <option {% if home_page ==2 %} selected {% endif %} value="2">Inn/{{ "joined"|l10n(page_data.lang) }}</option>
-                                <option {% if home_page ==3 %} selected {% endif %} value="3">Inn/{{ "following"|l10n(page_data.lang) }}</option>
-                                <option {% if home_page ==4 %} selected {% endif %} value="4">Solo/{{ "all"|l10n(page_data.lang) }}</option>
-                                <option {% if home_page ==5 %} selected {% endif %} value="5">Solo/{{ "following"|l10n(page_data.lang) }}</option>
-                                <option {% if home_page ==6 %} selected {% endif %} value="6">Inn/{{ "list"|l10n(page_data.lang)}}</option>
+                                <option {% if home_page ==0 %} selected {% endif %} value="0">{{ "inn"|l10n(page_data.lang)}}/{{ "all"|l10n(page_data.lang) }}</option>
+                                <option {% if home_page ==1 %} selected {% endif %} value="1">{{ "feeds"|l10n(page_data.lang)}}</option>
+                                <option {% if home_page ==2 %} selected {% endif %} value="2">{{ "inn"|l10n(page_data.lang)}}/{{ "joined"|l10n(page_data.lang) }}</option>
+                                <option {% if home_page ==3 %} selected {% endif %} value="3">{{ "inn"|l10n(page_data.lang)}}/{{ "following"|l10n(page_data.lang) }}</option>
+                                <option {% if home_page ==4 %} selected {% endif %} value="4">{{ "solo"|l10n(page_data.lang)}}/{{ "all"|l10n(page_data.lang) }}</option>
+                                <option {% if home_page ==5 %} selected {% endif %} value="5">{{ "solo"|l10n(page_data.lang)}}/{{ "following"|l10n(page_data.lang) }}</option>
+                                <option {% if home_page ==6 %} selected {% endif %} value="6">{{ "inn"|l10n(page_data.lang)}}/{{ "list"|l10n(page_data.lang)}}</option>
                             </select>
                         </div>
                     </div>
@@ -104,6 +104,7 @@
                                 <option {% if page_data.lang == "zh_cn" %} selected {% endif %} value="zh_cn">中文</option>
                                 <option {% if page_data.lang == "ja" %} selected {% endif %} value="ja">日本語</option>
                                 <option {% if page_data.lang == "fr" %} selected {% endif %} value="fr">Français</option>
+                                <option {% if page_data.lang == "uk" %} selected {% endif %} value="uk">Українська</option>
                             </select>
                         </div>
                     </div>

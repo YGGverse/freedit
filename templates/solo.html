@@ -1,14 +1,14 @@
-{% extends "layout.html" %} 
+{% extends "layout.html" %}
 
 {% block csp %}
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+<meta http-equiv="Content-Security-Policy" content="default-src 'self';
   img-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none';
-  font-src 'none'; form-action 'self'; frame-src 'none'; media-src 'none'; manifest-src 'none'; worker-src 'none';"> 
+  font-src 'none'; form-action 'self'; frame-src 'none'; media-src 'none'; manifest-src 'none'; worker-src 'none';">
 {% endblock %}
 
 {% block tabs %}
     <li><a href="/inn/0">Inn</a></li>
-    <li class="is-active"><a href="/solo/user/0">Solo</a></li>
+    <li class="is-active"><a href="/solo/user/0">{{ "solo"|l10n(page_data.lang) }}</a></li>
 {% endblock %}
 
 {% block content %}
@@ -42,7 +42,7 @@
             <div class="content">
                 <p>
                     {% match solo.reply_to %}{% when Some with (val) %}
-                        <small> Replying to <a href="/solo/{{val}}">{{val}}</a></small><br>
+                        <small>{{ "replying_to"|l10n(page_data.lang) }} <a href="/solo/{{val}}">{{val}}</a></small><br>
                     {% else %}{% endmatch %}
                     <a href="/solo/user/{{solo.uid}}"> <strong>{{solo.username}}</strong> </a>
                     <small>{{solo.created_at}}</small>
@@ -78,12 +78,12 @@
                 </div>
             </nav>
         </div>
-        
+
         <div class="media-right">
             {% if solo.solo_type == 20 %}
-                {% include "icons/lock_square.svg" %}
+                <span title="{{ "only_you_can_see"|l10n(page_data.lang) }}">{% include "icons/lock_square.svg" %}</span>
             {% else if solo.solo_type == 10 %}
-                {% include "icons/lock.svg" %}
+                <span title="{{ "private"|l10n(page_data.lang) }}">{% include "icons/lock.svg" %}</span>
             {% else %}{% endif %}
         </div>
     </article>
@@ -136,9 +136,9 @@
     </div>
     <div class="media-right">
         {% if solo.solo_type == 20 %}
-            {% include "icons/lock_square.svg" %}
+            <span title="{{ "only_you_can_see"|l10n(page_data.lang) }}">{% include "icons/lock_square.svg" %}</span>
         {% else if solo.solo_type == 10 %}
-            {% include "icons/lock.svg" %}
+            <span title="{{ "private"|l10n(page_data.lang) }}">{% include "icons/lock.svg" %}</span>
         {% else %}{% endif %}
     </div>
 </article>
@@ -175,7 +175,7 @@
                             </select>
                         </div>
                     </div>
-                    <input type="hidden" name="reply_to" value="{{solo.sid}}"> 
+                    <input type="hidden" name="reply_to" value="{{solo.sid}}">
                     <nav class="level is-mobile">
                         <div class="level-left">
                             <div class="level-item">
