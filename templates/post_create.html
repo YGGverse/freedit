@@ -31,13 +31,13 @@
 
                 <div class="field">
                     <div class="control">
-                        <input class="input is-small" type="text" name="tags" value="{{draft.tags}}" required maxlength="128" placeholder="tags, separated by #" />
+                        <input class="input is-small" type="text" name="tags" value="{{draft.tags}}" required maxlength="128" placeholder="{{ "tags_separated_by"|l10n(page_data.lang) }}" />
                     </div>
                 </div>
 
                 <div class="field">
                     <p class="control">
-                        <div id="editor" class="editor-container textarea" hidden></div>
+                        <div id="editor" class="editor-container textarea" hidden>{{draft.content}}</div>
                     </p>
                     <noscript>
                         <style>
@@ -45,7 +45,7 @@
                         </style>
                         <textarea name="content" class="textarea" rows="15" required maxlength="65535" placeholder="Markdown supported">{{draft.content}}</textarea>
                         <p class="help">
-                            JavaScript is required for rich editing; falling back to plain textarea.
+                            {{ "javascript_is_required_for_rich_editor"|l10n(page_data.lang) }}
                         </p>
                     </noscript>
                 </div>
@@ -56,12 +56,12 @@
                         checked
                     {% else %}{% endmatch %}
                     name="is_draft" value="true"/>
-                    Save as draft
+                    {{ "save_draft"|l10n(page_data.lang) }}
                 </div>
 
                 <div class="field">
                     <input type="checkbox" name="delete_draft" value="true"/>
-                    Delete draft
+                    {{ "delete_draft"|l10n(page_data.lang) }}
                 </div>
 
                 <nav class="level is-mobile">
@@ -91,7 +91,7 @@
 
 <div class="box">
     <div class="content">
-        <div class="title">Drafts</div>
+        <div class="title">{{ "draft"|l10n(page_data.lang) }}</div>
         {% for draft_title in draft_titles %}
             <p><a href="/post/edit/0?from_draft={{draft_title}}">{{draft_title}}</a></p>
         {% endfor %}
