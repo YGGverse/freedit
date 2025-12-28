@@ -11,6 +11,7 @@ avatar_help = "请清除浏览器缓存"
 banned = "已禁用"
 batch_delete_read = "Batch delete notifications you have read" # @TODO
 batch_mark_as_read = "Batch mark as read" # @TODO
+markdown_supported = "Markdown supported..." # @TODO
 captcha = "验证码"
 captcha_difficulty = "验证码难度"
 captcha_name = "验证码名称"

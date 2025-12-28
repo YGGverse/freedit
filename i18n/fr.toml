@@ -72,6 +72,7 @@ list = "Liste"
 load_image = "Charger une image"
 lock = "Verrouiller"
 mark_as_read = "Mark as read" # @TODO
+markdown_supported = "Markdown supported..." # @TODO
 medium = "Moyen"
 members = "Membres"
 message = "Message" # @TODO

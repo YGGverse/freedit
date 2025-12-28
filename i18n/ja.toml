@@ -72,6 +72,7 @@ list = "リスト"
 load_image = "画像を読み込む"
 lock = "ロック"
 mark_as_read = "Mark as read" # @TODO
+markdown_supported = "Markdown supported..." # @TODO
 medium = "中"
 members = "メンバー"
 message = "Message" # @TODO

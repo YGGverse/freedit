@@ -286,19 +286,10 @@
         <div class="field">
             <label class="label" for="content">New comment</label>
             <div class="control">
-                <div id="editor"></div>
-                <noscript>
-                    <style>
-                        #editor { display: none !important; }
-                    </style>
-                    <textarea class="textarea" name="content"
-                            {% if !has_joined %} disabled {% endif %}
-                            required maxlength="10000"
-                            placeholder="comment, markdown supported"></textarea>
-                    <div class="help">
-                        {{ "javascript_is_required_for_rich_editor"|l10n(page_data.lang) }}
-                    </div>
-                </noscript>
+                <textarea class="textarea" name="content"
+                {% if !has_joined %} disabled {% endif %}
+                required maxlength="10000"
+                placeholder="{{ "markdown_supported"|l10n(page_data.lang) }}"></textarea>
             </div>
         </div>
         <nav class="level is-mobile">
@@ -343,9 +334,5 @@
     <a class="pagination-next" href="/post/{{post.iid}}/{{post.pid}}?anchor={{anchor + n}}&is_desc={{is_desc}}">{{ "next"|l10n(page_data.lang) }}</a>
     {% endif %}
 </nav>
-
-{% if has_joined %}
-<script src="/static/js/overtype.min.js?v={{ crate::GIT_COMMIT }}"></script>
-{% endif %}
 
 {% endblock %}

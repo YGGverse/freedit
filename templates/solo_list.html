@@ -98,16 +98,7 @@
                 <fieldset>
                     <div class="field">
                         <div class="control">
-                            <div id="editor"></div>
-                            <noscript>
-                                <style>
-                                    #editor { display: none !important; }
-                                </style>
-                                <textarea name="content" class="textarea" required minlength="1" maxlength="1000" placeholder="Markdown supported"></textarea>
-                                <div class="help">
-                                    {{ "javascript_is_required_for_rich_editor"|l10n(page_data.lang) }}
-                                </div>
-                            </noscript>
+                            <textarea name="content" class="textarea" required minlength="1" maxlength="1000" placeholder="{{ "markdown_supported"|l10n(page_data.lang) }}"></textarea>
                         </div>
                     </div>
                     <div class="field">
@@ -254,5 +245,4 @@
     </div>
 </div>
 {% endif %}
-<script src="/static/js/overtype.min.js?v={{ crate::GIT_COMMIT }}"></script>
 {% endblock %}
