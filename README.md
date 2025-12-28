@@ -71,4 +71,3 @@ cd freedit && cargo run
 * icon: <https://iconoir.com/>
 * CSS framework: <https://bulma.io/>
 * Rust crates: [Cargo.toml](https://github.com/freedit-org/freedit/blob/main/Cargo.toml)
-* Markdown editor: [overtype](https://github.com/panphora/overtype)
