@@ -31,9 +31,11 @@ fjall = "2.11.2"
 http = "1.4.0"
 identicon = { git = "https://github.com/freedit-dev/identicon.git", default-features = false }
 image = { version = "0.25.8", default-features = false, features = [
-    "jpeg",
-    "png",
-    "gif",
+    # not in use @TODO
+    #"gif",
+    #"jpeg",
+    #"png",
+    #"webp",
 ] }
 include_dir = "0.7.4"
 indexmap = "2"
