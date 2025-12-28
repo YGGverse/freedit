@@ -92,16 +92,20 @@
                     </span>
                 </a>
             {% else if is_author %}
-                <a class="tag is-rounded mr-2" href="/mod/{{post.iid}}/{{post.pid}}/lock">
-                    <span class="icon is-small">
-                        {% match post.status.as_str() %}
-                            {% when "LockedByUser" %}
+                {% match post.status.as_str() %}
+                    {% when "LockedByUser" %}
+                    <a class="tag is-rounded mr-2" href="/mod/{{post.iid}}/{{post.pid}}/lock">
+                        <span class="icon is-small">
                             <i class="fa-solid fa-lock-open" title="{{ "unlock"|l10n(page_data.lang) }}"></i>
-                            {% when "Normal" %}
+                        </span>
+                    </a>
+                    {% when "Normal" %}
+                    <a class="tag is-rounded mr-2" href="/mod/{{post.iid}}/{{post.pid}}/lock">
+                        <span class="icon is-small">
                             <i class="fa-solid fa-lock" title="{{ "lock"|l10n(page_data.lang) }}"></i>
-                        {% else %}{% endmatch %}
-                    </span>
-                </a>
+                        </span>
+                    </a>
+                {% else %}{% endmatch %}
                 <a class="tag is-rounded mr-2" href="/mod/{{post.iid}}/{{post.pid}}/hide">
                     {% match post.status.as_str() %}
                         {% when "HiddenByUser" %} {{ "unhide"|l10n(page_data.lang) }}
