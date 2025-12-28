@@ -13,58 +13,52 @@
     </div>
 </div>
 
-<div class="list has-visible-pointer-controls has-overflow-ellipsis box">
+<div class="box">
     {% for inn_nt in inn_notifications %}
-    <div class="list-item">
-        <div class="list-item-image is-hidden-touch">
-            <figure class="image is-48x48">
-                <a href="/user/{{inn_nt.uid}}">
-                    <img class="is-rounded" src="/static/avatars/{{inn_nt.uid}}.png">
-                </a>
-            </figure>
+    <div class="media">
+        <div class="media-left">
+            <a class="image is-48x48" href="/user/{{inn_nt.uid}}">
+                <img class="is-rounded" src="/static/avatars/{{inn_nt.uid}}.png">
+            </a>
         </div>
-        <div class="list-item-content">
+        <div class="media-content">
             <div class="list-item-description">
                 would like to join Inn <a href="/user/list?filter=inn&id={{inn_nt.iid}}">{{inn_nt.iid}}</a>
             </div>
         </div>
-        <div class="list-item-controls">
-            <form id="role" action="/role/{{inn_nt.iid}}/{{inn_nt.uid}}" method="post">
-                <fieldset>
-                    <div class="field has-addons">
-                        <p class="control">
-                            <span class="select is-small">
-                                <select name="role" required autocomplete="off">
-                                    <option selected value="Pending">{{ "pending"|l10n(page_data.lang) }}</option>
-                                    <option value="Rejected">{{ "rejected"|l10n(page_data.lang) }}</option>
-                                    <option value="Limited">{{ "limited"|l10n(page_data.lang) }}</option>
-                                    <option value="Intern">{{ "intern"|l10n(page_data.lang) }}</option>
-                                    <option value="Fellow">{{ "fellow"|l10n(page_data.lang) }}</option>
-                                    <option value="Mod">{{ "mod"|l10n(page_data.lang) }}</option>
-                                    <option value="Super">{{ "super"|l10n(page_data.lang) }}</option>
-                                </select>
-                            </span>
-                        </p>
-                        <div class="control">
-                            <button type="submit" class="button is-success is-small">{{ "save"|l10n(page_data.lang) }}</button>
-                        </div>
+        <div class="level is-mobile">
+            <form class="level-left" id="role" action="/role/{{inn_nt.iid}}/{{inn_nt.uid}}" method="post">
+                <div class="level-item field has-addons">
+                    <p class="control">
+                        <span class="select is-small">
+                            <select name="role" required autocomplete="off">
+                                <option selected value="Pending">{{ "pending"|l10n(page_data.lang) }}</option>
+                                <option value="Rejected">{{ "rejected"|l10n(page_data.lang) }}</option>
+                                <option value="Limited">{{ "limited"|l10n(page_data.lang) }}</option>
+                                <option value="Intern">{{ "intern"|l10n(page_data.lang) }}</option>
+                                <option value="Fellow">{{ "fellow"|l10n(page_data.lang) }}</option>
+                                <option value="Mod">{{ "mod"|l10n(page_data.lang) }}</option>
+                                <option value="Super">{{ "super"|l10n(page_data.lang) }}</option>
+                            </select>
+                        </span>
+                    </p>
+                    <div class="control">
+                        <button type="submit" class="button is-success is-small">{{ "save"|l10n(page_data.lang) }}</button>
                     </div>
-                </fieldset>
+                </div>
             </form>
         </div>
     </div>
     {% endfor %}
 
     {% for nt in notifications %}
-    <div class="list-item">
-        <div class="list-item-image is-hidden-touch">
-            <figure class="image is-48x48">
-                <a href="/user/{{nt.uid}}">
-                    <img class="is-rounded" src="/static/avatars/{{nt.uid}}.png">
-                </a>
-            </figure>
+    <div class="media">
+        <div class="media-left">
+            <a class="image is-48x48" href="/user/{{nt.uid}}">
+                <img class="is-rounded" class="is-rounded" src="/static/avatars/{{nt.uid}}.png">
+            </a>
         </div>
-        <div class="list-item-content">
+        <div class="media-content">
             <div class="list-item-description">
                 <small>{{nt.content1}}</small>
                 {% if nt.is_read %}
@@ -74,20 +68,21 @@
                 {% endif %}
             </div>
         </div>
-
-        <div class="list-item-controls">
-            {% if !nt.is_read %}
-            <a href="/notification?nid={{nt.nid}}&op_type=mark">
-                <span class="button is-small is-rounded is-info" title="{{ "mark_as_read"|l10n(page_data.lang) }}Mark as read">
-                    <i class="fa-solid fa-check"></i>
-                </span>
-            </a>
-            {% endif %}
-            <a href="/notification?nid={{nt.nid}}&op_type=delete">
-                <span class="button is-small is-rounded is-danger" title="{{ "delete_notification"|l10n(page_data.lang) }}">
-                    <i class="fa-solid fa-trash"></i>
-                </span>
-            </a>
+        <div class="level is-mobile">
+            <div class="level-left">
+                {% if !nt.is_read %}
+                <a class="level-item" href="/notification?nid={{nt.nid}}&op_type=mark">
+                    <span class="button is-small is-rounded is-info" title="{{ "mark_as_read"|l10n(page_data.lang) }}Mark as read">
+                        <i class="fa-solid fa-check"></i>
+                    </span>
+                </a>
+                {% endif %}
+                <a class="level-item" href="/notification?nid={{nt.nid}}&op_type=delete">
+                    <span class="button is-small is-rounded is-danger" title="{{ "delete_notification"|l10n(page_data.lang) }}">
+                        <i class="fa-solid fa-trash"></i>
+                    </span>
+                </a>
+            </div>
         </div>
     </div>
     {% endfor %}
