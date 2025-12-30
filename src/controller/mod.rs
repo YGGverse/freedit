@@ -118,7 +118,6 @@ pub(super) mod tantivy;
 
 pub(super) mod admin;
 pub(super) mod inn;
-pub(super) mod message;
 pub(super) mod solo;
 pub(super) mod upload;
 pub(super) mod user;
@@ -164,7 +163,6 @@ struct User {
     about: String,
     lang: Option<String>,
     home_page: u8,
-    pub_key: Option<String>,
 }
 
 impl std::fmt::Debug for User {
@@ -173,7 +171,7 @@ impl std::fmt::Debug for User {
             f,
             "uid: {}, username: {}, password_hash: ******, recovery_hash is set: {},
             created_at: {}, role: {}, url: {}, about: {},
-            lang: {}, home_page: {}, pub_key: {}",
+            lang: {}, home_page: {}",
             self.uid,
             self.username,
             self.recovery_hash.is_some(),
@@ -182,8 +180,7 @@ impl std::fmt::Debug for User {
             self.url,
             self.about,
             self.lang.as_deref().unwrap_or("N/A"),
-            self.home_page,
-            self.pub_key.as_deref().unwrap_or("N/A")
+            self.home_page
         )
     }
 }

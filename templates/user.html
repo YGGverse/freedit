@@ -37,11 +37,6 @@
             </div>
             <div class="level-right">
                 <div class="level-item">
-                    <a href="/message/{{user.uid}}" title="{{ "message"|l10n(page_data.lang) }}">
-                        <span class="icon is-large">
-                            <i class="fa-regular fa-envelope"></i>
-                        </span>
-                    </a>
                 {% match has_followed %} {% when Some with (true) %}
                     <a href="/user/{{user.uid}}/follow" title="{{ "unfollow"|l10n(page_data.lang) }}">
                         <span class="icon is-large">

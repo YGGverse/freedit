@@ -9,10 +9,7 @@ use crate::{
             mod_inn_post, post, post_delete, post_downvote, post_hide, post_lock, post_pin,
             post_upvote, preview, tag,
         },
-        message::{inbox, key, key_post, message, message_post},
-        meta_handler::{
-            favicon, handler_404, home, robots, serve_embedded_js, serve_webfonts, style,
-        },
+        meta_handler::{favicon, handler_404, home, robots, serve_webfonts, style},
         notification::notification,
         solo::{solo, solo_delete, solo_like, solo_list, solo_post},
         tantivy::search,
@@ -109,16 +106,12 @@ pub async fn router() -> Router {
         .route("/feed/star/{item_id}", get(feed_star))
         .route("/feed/subscribe/{uid}/{item_id}", get(feed_subscribe))
         .route("/feed/read/{item_id}", get(feed_read))
-        .route("/search", get(search))
-        .route("/message/{uid}", get(message).post(message_post))
-        .route("/key", get(key).post(key_post))
-        .route("/inbox/{mid}", get(inbox));
+        .route("/search", get(search));
 
     let router_static = Router::new()
         .route("/static/style.css", get(style))
         .route("/favicon.svg", get(favicon))
         .route("/robots.txt", get(robots))
-        .route("/static/js/{filename}", get(serve_embedded_js))
         .route("/webfonts/{filename}", get(serve_webfonts))
         .nest_service("/static/avatars", ServeDir::new(&CONFIG.avatars_path))
         .nest_service("/static/inn_icons", ServeDir::new(&CONFIG.inn_icons_path))
