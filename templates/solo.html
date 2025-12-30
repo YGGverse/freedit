@@ -127,11 +127,15 @@
                     {% endif %}
                 </a>
                 <a class="level-item tag is-rounded" href="/solo/{{solo.sid}}">
-                    <span class="icon is-small mr-1">
-                        <i class="fa-solid fa-microphone"></i>
-                    </span>
                     {% if solo.replies.len() > 0 %}
+                        <span class="icon is-small mr-1">
+                            <i class="fa-regular fa-comment"></i>
+                        </span>
                         {{solo.replies.len()}}
+                    {% else %}
+                        <span class="icon is-small">
+                            <i class="fa-regular fa-comment"></i>
+                        </span>
                     {% endif %}
                 </a>
                 {% match page_data.claim %} {% when Some with (claim) %}
