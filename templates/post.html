@@ -117,7 +117,7 @@
             {% if can_delete %}
                 <button class="tag is-rounded" popovertarget="delete_post" title="{{ "delete"|l10n(page_data.lang) }}">
                     <span class="icon is-small">
-                        <i class="fa-solid fa-trash"></i>
+                        <i class="fa-regular fa-trash-can"></i>
                     </span>
                 </button>
                 <div class="notification" id="delete_post" popover>
@@ -244,7 +244,7 @@
                     {% if comment.uid == val.uid %}
                     <button class="tag is-rounded" popovertarget="delete_pop_{{comment.cid}}" title="{{ "delete"|l10n(page_data.lang) }}">
                         <span class="icon is-small">
-                            <i class="fa-solid fa-trash"></i>
+                            <i class="fa-regular fa-trash-can"></i>
                         </span>
                     </button>
                     <div class="notification" id="delete_pop_{{comment.cid}}" popover>
