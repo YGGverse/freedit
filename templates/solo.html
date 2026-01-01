@@ -189,15 +189,7 @@
                             <textarea name="content" class="textarea" required minlength="1" maxlength="1000" placeholder="{{ "markdown_supported"|l10n(page_data.lang) }}"></textarea>
                         </div>
                     </div>
-                    <div class="field">
-                        <div class="control">
-                            <select class="select is-small" name="solo_type" title="Who can see">
-                                <option value="0" selected>{{ "everyone"|l10n(page_data.lang) }}</option>
-                                <option value="10">{{ "following"|l10n(page_data.lang) }}</option>
-                                <option value="20">{{ "just_me"|l10n(page_data.lang) }}</option>
-                            </select>
-                        </div>
-                    </div>
+                    <input type="hidden" name="solo_type" value="0"><!--non-public is deprecated -->
                     <input type="hidden" name="reply_to" value="{{solo.sid}}">
                     <nav class="level is-mobile">
                         <div class="level-left">
