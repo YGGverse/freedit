@@ -169,7 +169,7 @@ struct OutFeed {
 }
 
 impl OutFeed {
-    fn new(db: &TransactionalKeyspace, feed_id: u32, is_public: bool) -> Result<Self, AppError> {
+    fn new(db: &TransactionalKeyspace, feed_id: u32) -> Result<Self, AppError> {
         let feed: Feed = get_one(db, "feeds", feed_id)?;
         let err = db
             .open_partition("feed_errs", Default::default())?
@@ -178,7 +178,6 @@ impl OutFeed {
         Ok(OutFeed {
             feed_id,
             title: feed.title,
-            is_public,
             err,
         })
     }
@@ -259,7 +258,7 @@ pub(crate) async fn feed(
         }
 
         let e: &mut Vec<OutFeed> = map.entry(feed.folder.clone()).or_default();
-        let out_feed = OutFeed::new(&DB, feed.feed_id, feed.is_public)?;
+        let out_feed = OutFeed::new(&DB, feed.feed_id)?;
         e.push(out_feed);
 
         if let Some(ref active_folder) = active_folder
