@@ -45,19 +45,7 @@
             </div>
         </div>
 
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label" for="is_public">{{ "is_public"|l10n(page_data.lang) }}</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <label class="radio"><input type="radio" name="is_public" required value="true" autocomplete="off" /> {{ "yes"|l10n(page_data.lang) }}</label>
-                        <label class="radio"><input type="radio" name="is_public" required value="false" autocomplete="off" /> {{ "no"|l10n(page_data.lang) }}</label>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <input type="hidden" name="is_public" required value="true" /> <!--deprecated-->
 
         <div class="field is-horizontal">
             <div class="field-label"></div>
