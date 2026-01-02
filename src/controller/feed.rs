@@ -165,7 +165,6 @@ struct PageFeed<'a> {
 struct OutFeed {
     feed_id: u32,
     title: String,
-    is_public: bool,
     err: Option<String>,
 }
 
